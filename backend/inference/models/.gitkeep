@@ -1,0 +1,4 @@
+# Place TensorFlow SavedModel directories here:
+# - face_detection/
+# - object_detection/
+# - gaze_estimation/

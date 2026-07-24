@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: CUSTECH Enterprise Exam API
+  version: 2.0.0
+paths:
+  /api/health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+  /api/auth/login:
+    post:
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                identifier: { type: string }
+                password: { type: string }
+  /api/auth/refresh:
+    post:
+      summary: Refresh access token
+  /api/sessions/verify-manifest:
+    post:
+      summary: Verify exam manifest signature
+  /api/sessions/submit-hashchain:
+    post:
+      summary: Submit answer hash chain
+  /api/sessions/verify-integrity/{id}:
+    get:
+      summary: Verify answer integrity
+  /api/exams/{id}/evidence/frame:
+    post:
+      summary: Upload proctoring frame
+  /api/exams/{id}/evidence/violation:
+    post:
+      summary: Upload violation evidence
+  /api/inference/face:
+    post:
+      summary: Face detection inference
+  /api/inference/object:
+    post:
+      summary: Object detection inference
+  /api/admin/audit-logs:
+    get:
+      summary: Audit logs
+  /api/admin/metrics:
+    get:
+      summary: Prometheus-compatible metrics
+  /api/admin/broadcast:
+    post:
+      summary: Broadcast alert to clients

@@ -1,0 +1,29 @@
+# Render Blueprint — optional one-click deploy
+services:
+  - type: web
+    name: custech-exam-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+      - key: NODE_ENV
+        value: production
+
+  - type: web
+    name: custech-exam-web
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run download-models && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
+      - key: VITE_SOCKET_URL
+        sync: false
