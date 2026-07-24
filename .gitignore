@@ -7,6 +7,12 @@ dist/
 *.log
 .DS_Store
 
+# Local Database logs & deb installers
+db/
+*.rdb
+*.deb
+dump.rdb
+
 # Exclude heavy model weight shards
 *.bin
 *-shard*
@@ -14,3 +20,6 @@ dist/
 public/models/
 resources/models/
 src/renderer/dist/
+
+# Exclude workflow folder to prevent Personal Access Token 'workflow scope' errors
+.github/
